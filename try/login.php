@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>Welcome Back!</h1>
+        <p>Please enter your credentials to continue.</p>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">LOG IN</button>
+        </form>
+        <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+        <p class="security-notes">For your security, avoid using public Wi-Fi for logging in.</p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            
+            if (username === 'admin' && password === 'rawanalmneefah') {
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Invalid username or password.'); 
+            }
+        });
+    </script>
+</body>
+</html>

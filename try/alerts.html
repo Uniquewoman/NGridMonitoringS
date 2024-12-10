@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts & Activity</title>
+    <link rel="stylesheet" href="ALERTS & ACTIVITY.CSS"> <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">ALERTS & ACTIVITY</div>
+        <nav class="header-nav">
+            <a href="dashboard.html">DASHBOARD</a>
+            <a href="alerts.html">ALERTS & ACTIVITY</a>
+            <a href="reports.html">REPORTS</a>
+            <a href="settings.html">SETTINGS</a>
+            <a href="user.html"><i class="fas fa-user"></i> USER</a>
+            <a href="help.html"><i class="fas fa-question-circle"></i> HELP</a>
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-arrow-right"></i> Login
+            </a>
+        </nav>
+    </header>
+    <div class="background">
+        <img src="نقل.jpg"
+        width="5%"
+        height="50%"></div>
+
+    <main>
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Navigation</h2>
+                <ul>
+                    <li><a href="#recent-alerts">Recent Alerts</a></li>
+                    <li><a href="#activity-log">Activity Log</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#resolved-alerts">Resolved Alerts</a></li>
+                </ul>
+            </aside>
+
+            <div class="content">
+                <h1>Alerts & Activity</h1>
+                
+                <section class="alert-summary">
+                    <h2>Summary</h2>
+                    <div class="summary-card">
+                        <p><strong>Total Alerts:</strong> 12</p>
+                        <p><strong>Critical Alerts:</strong> 3</p>
+                        <p><strong>Warnings:</strong> 5</p>
+                        <p><strong>Resolved:</strong> 4</p>
+                    </div>
+                </section>
+                
+                <section id="recent-alerts" class="alert-list">
+                    <h2>Recent Alerts</h2>
+                    <div class="alert warning">
+                        <p><strong>Alert:</strong> CPU usage exceeds 70%</p>
+                        <p><strong>Type:</strong> Warning</p>
+                        <p><strong>Timestamp:</strong> 2023-11-01 10:00</p>
+                    </div>
+                    <div class="alert critical">
+                        <p><strong>Alert:</strong> Memory usage exceeds 90%</p>
+                        <p><strong>Type:</strong> Critical</p>
+                        <p><strong>Timestamp:</strong> 2023-11-02 12:30</p>
+                    </div>
+                    <div class="alert shutdown">
+                        <p><strong>Alert:</strong> Node is shutting down</p>
+                        <p><strong>Type:</strong> Shutdown</p>
+                        <p><strong>Timestamp:</strong> 2023-11-03 15:45</p>
+                    </div>
+                    <div class="alert warning">
+                        <p><strong>Alert:</strong> Disk space is almost full</p>
+                        <p><strong>Type:</strong> Warning</p>
+                        <p><strong>Timestamp:</strong> 2023-11-04 09:15</p>
+                    </div>
+                    <div class="alert resolved">
+                        <p><strong>Alert:</strong> Service restored</p>
+                        <p><strong>Type:</strong> Resolved</p>
+                        <p><strong>Timestamp:</strong> 2023-11-05 08:00</p>
+                    </div>
+                    <div class="alert critical">
+                        <p><strong>Alert:</strong> High latency detected</p>
+                        <p><strong>Type:</strong> Critical</p>
+                        <p><strong>Timestamp:</strong> 2023-11-06 11:20</p>
+                    </div>
+                </section>
+                
+                <section id="activity-log" class="activity-log">
+                    <h2>Activity Log</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Action</th>
+                                <th>User</th>
+                            </tr>
+                        </thead>
+                        <tbody><tr>
+                            <td>2023-11-01 10:00</td>
+                            <td>Alert acknowledged</td>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <td>2023-11-02 12:30</td>
+                            <td>Alert resolved</td>
+                            <td>Tech Support</td>
+                        </tr>
+                        <tr>
+                            <td>2023-11-03 15:45</td>
+                            <td>Node restarted</td>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <td>2023-11-04 09:15</td>
+                            <td>Disk space cleared</td>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <td>2023-11-05 08:00</td>
+                            <td>Service restored</td>
+                            <td>Tech Support</td>
+                        </tr>
+                        <tr>
+                            <td>2023-11-06 11:20</td>
+                            <td>Alert escalated</td>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <td>2023-11-07 14:05</td>
+                            <td>New user added</td>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <td>2023-11-08 09:45</td>
+                            <td>System maintenance completed</td>
+                            <td>Tech Support</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="analytics" class="analytics">
+                <h2>Analytics</h2>
+                <div class="analytics-card">
+                    <p><strong>CPU Usage:</strong> 75%</p>
+                    <p><strong>Memory Usage:</strong> 60%</p>
+                    <p><strong>Disk Usage:</strong> 80%</p>
+                </div>
+            </section>
+
+            <section class="extra-content">
+                <h2>Additional Information</h2>
+                <div class="info-box">
+                    <h3>System Notifications</h3>
+                    <p>The system will undergo maintenance on 2023-11-10 from 11:00 PM to 1:00 AM.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Upcoming Features</h3>
+                    <p>New user management features will be available in the next update.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<a href="settings.html" class="back-link">⬅️ Back to settings</a>
+
+<script>
+    // يمكنك إضافة أي سكريبتات هنا إذا احتجت
+</script>
+</body>
+</html>

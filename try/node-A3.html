@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node A3 Details</title>
+    <link rel="stylesheet" href="node.css"> <!-- ربط ملف CSS هنا -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- تضمين مكتبة Chart.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+           .metrics {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            max-width: 1000px; /* تحديد العرض الأقصى للرسم البياني */
+            max-height: 600px; /* تحديد الارتفاع الأقصى للرسم البياني */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title"> NODE A3</div>
+        <nav class="header-nav">
+            <a href="dashboard.html">DASHBOARD</a>
+            <a href="alerts.html">ALERTS & ACTIVITY</a>
+            <a href="reports.html">REPORTS</a>
+            <a href="settings.html">SETTINGS</a>
+            <a href="user.html"><i class="fas fa-user"></i> USER</a>
+            <a href="help.html"><i class="fas fa-question-circle"></i> HELP</a>
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-arrow-right"></i> Login
+            </a>
+        </nav>
+    </header>
+    <main>
+        <h1>Node A3 Details</h1>
+        <div class="node-info">
+            <p><strong>IP:</strong> 192.168.1.3</p>
+            <p><strong>Status:</strong> Operational</p>
+            <p><strong>Location:</strong> Riyadh</p>
+            <p><strong>Uptime:</strong> 99.95%</p>
+            <p><strong>Last Maintenance:</strong> 2023-11-01</p>
+        </div>
+        
+        <div class="metrics">
+            <h2>Performance Metrics</h2>
+            <canvas id="usageChart" width="300" height="150"></canvas> <!-- الرسم البياني الشريطي -->
+            <canvas id="alertsChart" width="300" height="150"></canvas> <!-- الرسم البياني الدائري -->
+        </div>
+        
+        <div class="logs">
+            <h2>Recent Logs</h2>
+            <ul>
+                <li>[2023-11-21 12:00] Node A3 operational check completed.</li>
+                <li>[2023-11-20 16:30] Routine maintenance performed.</li>
+                <li>[2023-11-19 11:15] Alert: Network connectivity stable.</li>
+            </ul>
+        </div>
+
+        <a href="dashboard.html" class="back-link">⬅️ Back to Dashboard</a>
+    </main>
+
+    <script>
+        // إعداد البيانات للرسم البياني الشريطي
+        const ctxUsage = document.getElementById('usageChart').getContext('2d');
+        const usageChart = new Chart(ctxUsage, {
+            type: 'bar',
+            data: {
+                labels: ['CPU Usage', 'Memory Usage', 'Disk Usage'],
+                datasets: [{
+                    label: 'Usage Percentage',
+                    data: [15, 60, 40], // بيانات الأداء
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // إعداد البيانات للرسم البياني الدائري
+        const ctxAlerts = document.getElementById('alertsChart').getContext('2d');
+        const alertsChart = new Chart(ctxAlerts, {
+            type: 'pie',
+            data: {
+                labels: ['Operational', 'Warning', 'Critical'],
+                datasets: [{
+                    label: 'Node Status',
+                    data: [1, 0, 0], // بيانات الحالة
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>

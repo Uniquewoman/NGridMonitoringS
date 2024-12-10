@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; 
+    color: black; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #001f3f; 
+    color: orange; 
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-nav a {
+    color: orange; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-nav a:hover {
+    color: #fff; 
+}
+
+.header-user, .header-help {
+    color: orange; 
+    margin-left: 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.city {
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+}
+
+.node {
+    background-color: #f0f0f0; /* خلفية رمادية فاتحة */
+    border-radius: 50%; /* شكل دائري */
+    width: 70px; /* عرض الدائرة */
+    height: 70px; /* ارتفاع الدائرة */
+    display: flex; /* استخدام flexbox */
+    justify-content: center; /* محاذاة المحتوى للوسط */
+    align-items: center; /* محاذاة المحتوى للوسط */
+    text-align: center;
+    margin: 10px auto; /* مركز الدائرة في العنصر */
+    border: 3px solid orange; /* حدود برتقالية للدائرة */
+    transition: background-color 0.3s;
+}
+
+.node:hover {
+    background-color: #e0e0e0; /* لون رمادي فاتح عند التمرير */
+}
+
+.node span {
+    font-size: 12px; /* حجم خط صغير */
+    color: black; /* لون النص داخل الدائرة */
+}
+
+.node a {
+    color: orange; /* برتقالي */
+    text-decoration: none;
+    font-weight: bold;
+}

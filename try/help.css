@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; /* خلفية بيضاء */
+    color: black; /* لون النص أسود */
+    margin: 0;
+}
+
+/* تنسيق الهيدر */
+header {
+    background-color: #001f3f; /* كحلي غامق */
+    color: orange; /* كتابة برتقالية */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-nav a {
+    color: orange; /* برتقالي */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-nav a:hover {
+    color: #fff; /* تغيير اللون إلى الأبيض عند التمرير */
+}
+
+/* تنسيق المحتوى الرئيسي */
+main {
+    padding: 20px;
+}
+
+.help-info {
+    background-color: #f0f0f0; /* خلفية رمادية فاتحة */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

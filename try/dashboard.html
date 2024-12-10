@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        .node-info {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            border: 1px solid #FFA500;
+            padding: 10px;
+            color: #FFA500;
+            border-radius: 5px;
+            width: 220px; 
+            z-index: 1000;
+        }
+
+        .node {
+            position: relative; 
+            margin-bottom: 20px; 
+        }
+
+        .status-info {
+            background-color: #444;
+            border: 1px solid #FFA500;
+            padding: 10px;
+            color: #FFA500;
+            border-radius: 5px;
+            width: 250px; 
+            margin: 20px auto; 
+            text-align: left;
+        }
+
+        .status-icons {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .status-icon {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">MY DASHBOARD</div>
+        <nav class="header-nav">
+            <a href="dashboard.html">DASHBOARD</a>
+            <a href="alerts.html">ALERTS & ACTIVITY</a>
+            <a href="reports.html">REPORTS</a>
+            <a href="settings.html">SETTINGS</a>
+    
+       
+                <a href="user.html"><i class="fas fa-user"></i> USER</a>
+                <a href="help.html"><i class="fas fa-question-circle"></i> HELP</a>
+                <a href="login.html" class="login-icon">
+                    <i class="fas fa-arrow-right"></i> Login
+                </a>
+            </a>
+            <nav></nav>
+        </div>
+    </header>
+    <div class="background">
+ <img src="نقل.jpg"
+width="5%"
+height="50%"></div>
+
+
+    </div>
+
+    <div class="container">
+        <div class="city">
+            <h2>Riyadh</h2>
+            <div class="node" onmouseover="showInfo('nodeA1', this)" onmouseout="hideInfo()">
+                <a href="node-A1.html"> A1</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeA2', this)" onmouseout="hideInfo()">
+                <a href="node-A2.html"> A2</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeA3', this)" onmouseout="hideInfo()">
+                <a href="node-A3.html"> A3</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeA4', this)" onmouseout="hideInfo()">
+                <a href="node-A4.html"> A4</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeA5', this)" onmouseout="hideInfo()">
+                <a href="node-A5.html"> A5</a>
+            </div>
+        </div>
+
+        <div class="city">
+            <h2>Jeddah</h2>
+            <div class="node" onmouseover="showInfo('nodeB1', this)" onmouseout="hideInfo()">
+                <a href="node-B1.html"> B1</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeB2', this)" onmouseout="hideInfo()">
+                <a href="node-B2.html"> B2</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeB3', this)" onmouseout="hideInfo()">
+                <a href="node-B3.html"> B3</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeB4', this)" onmouseout="hideInfo()">
+                <a href="node-B4.html"> B4</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeB5', this)" onmouseout="hideInfo()">
+                <a href="node-B5.html"> B5</a>
+            </div>
+        </div><div class="city">
+            <h2>Damam</h2>
+            <div class="node" onmouseover="showInfo('nodeC1', this)" onmouseout="hideInfo()">
+                <a href="node-C1.html"> C1</a>
+            </div><div class="node" onmouseover="showInfo('nodeC2', this)" onmouseout="hideInfo()">
+                <a href="node-C2.html"> C2</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeC3', this)" onmouseout="hideInfo()">
+                <a href="node-C3.html"> C3</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeC4', this)" onmouseout="hideInfo()">
+                <a href="node-C4.html"> C4</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeC5', this)" onmouseout="hideInfo()">
+                <a href="node-C5.html"> C5</a>
+            </div>
+        </div>
+
+        <div class="city">
+            <h2>Khobar</h2>
+            <div class="node" onmouseover="showInfo('nodeD1', this)" onmouseout="hideInfo()">
+                <a href="node-D1.html"> D1</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeD2', this)" onmouseout="hideInfo()">
+                <a href="node-D2.html"> D2</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeD3', this)" onmouseout="hideInfo()">
+                <a href="node-D3.html"> D3</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeD4', this)" onmouseout="hideInfo()">
+                <a href="node-D4.html"> D4</a>
+            </div>
+            <div class="node" onmouseover="showInfo('nodeD5', this)" onmouseout="hideInfo()">
+                <a href="node-D5.html"> D5</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-info">
+        <div class="status-icons">
+            <img src="خضرا.jpg" alt="Green Icon" class="status-icon">
+            <span>Green Icon: OK</span>
+        </div>
+        <div class="status-icons">
+            <img src="صفرا.jpg" alt="Yellow Icon" class="status-icon">
+            <span>Yellow Icon: Warning</span>
+        </div>
+        <div class="status-icons">
+            <img src="احمر.png" alt="Red Icon" class="status-icon">
+            <span>Red Icon: Critical</span>
+        </div>
+        <div class="status-icons">
+            <img src="غامق.png!bw700" alt="Dark Red Icon" class="status-icon">
+            <span>Dark Red Icon: Shutdown</span>
+        </div>
+    </div>
+
+    <div id="node-info" class="node-info"></div><script>
+        const nodeDetails = {
+            nodeA1: "IP: 192.168.1.1\nStatus: Operational\nLocation: Riyadh\nUptime: 99.90%",
+            nodeA2: "IP: 192.168.1.2\nStatus: Warning\nLocation: Riyadh\nUptime: 95.00%",
+            nodeA3: "IP: 192.168.1.3\nStatus: Critical\nLocation: Riyadh\nUptime: 85.00%",
+            nodeA4: "IP: 192.168.1.4\nStatus: Operational\nLocation: Riyadh\nUptime: 99.50%",
+            nodeA5: "IP: 192.168.1.5\nStatus: Operational\nLocation: Riyadh\nUptime: 99.80%",
+            nodeB1: "IP: 192.168.2.1\nStatus: Operational\nLocation: Jeddah\nUptime: 98.90%",
+            nodeB2: "IP: 192.168.2.2\nStatus: Warning\nLocation: Jeddah\nUptime: 96.00%",
+            nodeB3: "IP: 192.168.2.3\nStatus: Critical\nLocation: Jeddah\nUptime: 80.00%",
+            nodeB4: "IP: 192.168.2.4\nStatus: Operational\nLocation: Jeddah\nUptime: 97.50%",
+            nodeB5: "IP: 192.168.2.5\nStatus: Operational\nLocation: Jeddah\nUptime: 98.80%",
+            nodeC1: "IP: 192.168.3.1\nStatus: Operational\nLocation: City 3\nUptime: 99.00%",
+            nodeC2: "IP: 192.168.3.2\nStatus: Warning\nLocation: City 3\nUptime: 94.00%",
+            nodeC3: "IP: 192.168.3.3\nStatus: Critical\nLocation: City 3\nUptime: 85.00%",
+            nodeC4: "IP: 192.168.3.4\nStatus: Operational\nLocation: City 3\nUptime: 99.50%",
+            nodeC5: "IP: 192.168.3.5\nStatus: Operational\nLocation: City 3\nUptime: 99.80%",
+            nodeD1: "IP: 192.168.4.1\nStatus: Operational\nLocation: City 4\nUptime: 98.50%",
+            nodeD2: "IP: 192.168.4.2\nStatus: Warning\nLocation: City 4\nUptime: 93.00%",
+            nodeD3: "IP: 192.168.4.3\nStatus: Critical\nLocation: City 4\nUptime: 85.00%",
+            nodeD4: "IP: 192.168.4.4\nStatus: Operational\nLocation: City 4\nUptime: 99.50%",
+            nodeD5: "IP: 192.168.4.5\nStatus: Operational\nLocation: City 4\nUptime: 99.98%",
+        };
+
+        function showInfo(node, element) {
+            const infoDiv = document.getElementById('node-info');
+            infoDiv.textContent = nodeDetails[node];
+            infoDiv.style.display = 'block';
+            const rect = element.getBoundingClientRect();
+            infoDiv.style.top = '${rect.top + window.scrollY}px'; 
+            infoDiv.style.left = '${rect.right + 10}px' ; 
+        }
+
+        function hideInfo() {
+            const infoDiv = document.getElementById('node-info');
+            infoDiv.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

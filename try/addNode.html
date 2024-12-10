@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Node</title>
+    <link rel="stylesheet" href="addNode.css"> <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">ADD NODE </div>
+        <nav class="header-nav">
+            <a href="dashboard.html">DASHBOARD</a>
+            <a href="alerts.html">ALERTS & ACTIVITY</a>
+            <a href="reports.html">REPORTS</a>
+            <a href="settings.html">SETTINGS</a>
+            <a href="user.html"><i class="fas fa-user"></i> USER</a>
+            <a href="help.html"><i class="fas fa-question-circle"></i> HELP</a>
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-arrow-right"></i> Login
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Add Node</h1>
+        <div class="form-container">
+            <form id="addNodeForm">
+                <div class="form-group">
+                    <label for="ip">IP Address:</label>
+                    <input type="text" id="ip" name="ip" required>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="Operational">Operational</option>
+                        <option value="Warning">Warning</option>
+                        <option value="Critical">Critical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="uptime">Uptime (%):</label>
+                    <input type="number" id="uptime" name="uptime" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastMaintenance">Last Maintenance:</label>
+                    <input type="date" id="lastMaintenance" name="lastMaintenance" required>
+                </div>
+                <button type="submit">Add Node</button>
+            </form>
+        </div>
+        <a href="settings.html" class="back-link">⬅️ Back to Settings</a>
+    </main>
+
+    <script>
+        document.getElementById('addNodeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            alert('Node added successfully!');
+            this.reset(); 
+        });
+    </script>
+      <a href="settings.html" class="back-link">⬅️ Back to settings</a>
+</body>
+</html>

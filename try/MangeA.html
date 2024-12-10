@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Alerts</title>
+    <link rel="stylesheet" href="MangeA.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-title"> MANAGE ALERTS </div>
+        <nav class="header-nav">
+            <a href="dashboard.html">DASHBOARD</a>
+            <a href="alerts.html">ALERTS & ACTIVITY</a>
+            <a href="reports.html">REPORTS</a>
+            <a href="settings.html">SETTINGS</a>
+            <a href="user.html"><i class="fas fa-user"></i> USER</a>
+            <a href="help.html"><i class="fas fa-question-circle"></i> HELP</a>
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-arrow-right"></i> Login
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Manage Alerts</h1>
+
+        <div class="filter-container">
+            <h3>Filter Alerts</h3>
+            <label for="timeFilter">Select Time Period:</label>
+            <select id="timeFilter" onchange="filterAlerts()">
+                <option value="all">All Time</option>
+                <option value="day">Last Day</option>
+                <option value="week">Last Week</option>
+                <option value="month">Last Month</option>
+                <option value="year">Last Year</option>
+                <option value="specificDate">Specific Date</option>
+            </select>
+            <div id="specificDateContainer" style="display: none;">
+                <label for="specificDate">Choose a date:</label>
+                <input type="date" id="specificDate" onchange="filterAlerts()">
+            </div>
+
+            <label for="cityFilter">Select City:</label>
+            <select id="cityFilter" onchange="filterAlerts()">
+                <option value="all">All Cities</option>
+                <option value="riyadh">Riyadh</option>
+                <option value="jeddah">Jeddah</option>
+                <option value="damam">Dammam</option>
+                <option value="khobar">Khobar</option>
+            </select>
+
+            <label for="typeFilter">Select Alert Type:</label>
+            <select id="typeFilter" onchange="filterAlerts()">
+                <option value="all">All Types</option>
+                <option value="ok">OK</option>
+                <option value="warning">Warning</option>
+                <option value="critical">Critical</option>
+                <option value="shutdown">Shutdown</option>
+            </select>
+        </div>
+
+        <button onclick="showAlerts()">Show Alerts</button>
+
+        <div class="stats">
+            <h3>Alert Statistics</h3>
+            <p id="alertStats">Total: <span id="totalAlerts">0</span> | OK: <span id="totalOK">0</span> | Warning: <span id="totalWarning">0</span> | Critical: <span id="totalCritical">0</span> | Shutdown: <span id="totalShutdown">0</span></p>
+        </div>
+
+        <div class="alert-container" id="alertContainer"></div>
+
+        <div id="editFormContainer" class="form-container" style="display: none;">
+            <h3>Edit Alert</h3>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="alertType">Alert Type:</label>
+                    <select id="alertType" name="alertType" required>
+                        <option value="ok">OK</option>
+                        <option value="warning">Warning</option>
+                        <option value="critical">Critical</option>
+                        <option value="shutdown">Shutdown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alertMessage">Message:</label>
+                    <input type="text" id="alertMessage" name="alertMessage" required>
+                </div>
+                <div class="form-group">
+                    <label for="alertColor">Color (CSS Color):</label><input type="text" id="alertColor" name="alertColor" required placeholder="e.g. #28a745">
+                </div>
+                <button type="submit">Save Changes</button>
+                <button type="button" onclick="cancelEdit()">Cancel</button>
+            </form>
+        </div>
+
+        <div id="addAlertFormContainer" class="form-container" style="display: none;">
+            <h3>Add New Alert</h3>
+            <form id="addAlertForm">
+                <div class="form-group">
+                    <label for="newAlertMessage">Message:</label>
+                    <input type="text" id="newAlertMessage" name="newAlertMessage" required>
+                </div>
+                <div class="form-group">
+                    <label for="newAlertColor">Color (CSS Color):</label>
+                    <input type="text" id="newAlertColor" name="newAlertColor" required placeholder="e.g. #28a745">
+                </div>
+                <div class="form-group">
+                    <label for="newAlertCity">City:</label>
+                    <select id="newAlertCity" name="newAlertCity" required>
+                        <option value="riyadh">Riyadh</option>
+                        <option value="jeddah">Jeddah</option>
+                        <option value="damam">Dammam</option>
+                        <option value="khobar">Khobar</option>
+                    </select>
+                </div>
+                <button type="submit">Add Alert</button>
+                <button type="button" onclick="cancelAdd()">Cancel</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function showAlerts() {
+            const alertContainer = document.getElementById('alertContainer');
+            alertContainer.innerHTML = ''; // Clear previous alerts
+            const alertCount = Math.floor(Math.random() * 4) + 1; // Random number of alerts to display (1 to 4)
+
+            for (let i = 0; i < alertCount; i++) {
+                const alertType = ['ok', 'warning', 'critical', 'shutdown'][Math.floor(Math.random() * 4)];
+                const alertCity = ['riyadh', 'jeddah', 'damam', 'khobar'][Math.floor(Math.random() * 4)];
+                const alertDate = new Date(Date.now() - Math.floor(Math.random() * 86400000)).toISOString(); // Random past date
+                const alertMessage = getAlertMessage(alertType);
+
+                const newAlertDiv = document.createElement('div');
+               
+                newAlertDiv.setAttribute("data-city", alertCity);
+                newAlertDiv.setAttribute("data-date", alertDate);
+                newAlertDiv.style.backgroundColor = getAlertColor(alertType);
+
+                newAlertDiv.innerHTML = `
+                    <span>${alertMessage}</span>
+                    <span class="timestamp">Created at: <span>${new Date(alertDate).toLocaleString()}</span></span>
+                    <button onclick="editAlert('${alertType}')">Edit</button>
+                    <button onclick="deleteAlert('${alertType}')">Delete</button>
+                    <select onchange="changeAlertStatus('${alertType}', this.value)">
+                        <option value="ok">OK</option>
+                        <option value="warning">Warning</option>
+                        <option value="critical">Critical</option>
+                        <option value="shutdown">Shutdown</option>
+                    </select>
+                `;
+
+                alertContainer.appendChild(newAlertDiv);
+            }
+
+            updateStats(); // Update statistics after showing new alerts
+        }
+
+        function getAlertColor(type) {
+            switch (type) {
+                case 'ok': return '#28a745'; // Green
+                case 'warning': return '#ffc107'; // Yellow
+                case 'critical': return '#dc3545'; // Red
+                case 'shutdown': return '#661c1c'; // Dark Red
+                default: return '#007bff'; // Default Blue
+            }
+        }
+        
+        function getAlertMessage(status) {
+            switch (status) {case 'ok': return 'All systems operational';
+                case 'warning': return 'System performance degraded';
+                case 'critical': return 'Immediate action required!';
+                case 'shutdown': return 'System is down!';
+                default: return '';
+            }
+        }
+
+        function editAlert(type) {
+            const alertDiv = document.getElementById(`alert-${type}`);
+            const message = alertDiv.querySelector('span').innerText;
+            const color = window.getComputedStyle(alertDiv).backgroundColor;
+
+            document.getElementById('alertType').value = type;
+            document.getElementById('alertMessage').value = message;
+            document.getElementById('alertColor').value = rgbToHex(color);
+            document.getElementById('editFormContainer').style.display = 'block';
+        }
+
+        function deleteAlert(type) {
+            const alertDiv = document.getElementById(`alert-${type}`);
+            alertDiv.remove();
+            updateStats(); // Update statistics after deletion
+        }
+
+        function changeAlertStatus(type, newStatus) {
+            const alertDiv = document.getElementById(`alert-${type}`);
+           
+           
+            updateStats(); // Update statistics after status change
+        }
+
+        function cancelEdit() {
+            document.getElementById('editFormContainer').style.display = 'none';
+            document.getElementById('editForm').reset();
+        }
+
+        document.getElementById('editForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const type = document.getElementById('alertType').value;
+            const message = document.getElementById('alertMessage').value;
+            const color = document.getElementById('alertColor').value;
+
+            const alertDiv = document.getElementById(`alert-${type}`);
+            alertDiv.querySelector('span').innerText = message;
+            alertDiv.style.backgroundColor = color;
+
+            cancelEdit();
+        });
+
+        function cancelAdd() {
+            document.getElementById('addAlertFormContainer').style.display = 'none';
+            document.getElementById('addAlertForm').reset();
+        }
+
+        document.getElementById('addAlertForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const message = document.getElementById('newAlertMessage').value;
+            const color = document.getElementById('newAlertColor').value;
+            const city = document.getElementById('newAlertCity').value;
+           
+
+            const newAlertDiv = document.createElement('div');
+           
+            newAlertDiv.id = newAlertId;
+            newAlertDiv.setAttribute("data-city", city);
+            newAlertDiv.setAttribute("data-date", new Date().toISOString());
+
+            newAlertDiv.style.backgroundColor = color;
+
+            newAlertDiv.innerHTML = `
+                <span>${message}</span>
+                <span class="timestamp">Created at: <span>${new Date().toLocaleString()}</span></span>
+                <button onclick="editAlert('${newAlertId}')">Edit</button>
+                <button onclick="deleteAlert('${newAlertId}')">Delete</button>
+                <select onchange="changeAlertStatus('${newAlertId}', this.value)">
+                    <option value="ok">OK</option>
+                    <option value="warning">Warning</option>
+                    <option value="critical">Critical</option>
+                    <option value="shutdown">Shutdown</option>
+                </select>
+            `;
+
+            document.getElementById('alertContainer').appendChild(newAlertDiv);
+            cancelAdd();updateStats(); // Update statistics after adding new alert
+        });
+
+        function filterAlerts() {
+            const timeFilter = document.getElementById('timeFilter').value;
+            const specificDate = document.getElementById('specificDate').value;
+            const cityFilter = document.getElementById('cityFilter').value;
+            const typeFilter = document.getElementById('typeFilter').value;
+            const alerts = document.getElementsByClassName('alert');
+            let visibleCount = 0;
+
+            for (let alert of alerts) {
+                const alertDate = new Date(alert.getAttribute('data-date'));
+                const alertCity = alert.getAttribute('data-city');
+                const alertType = alert.classList[1]; // Get the alert type (second class)
+
+                let shouldDisplay = true;
+
+                // Filter by time
+                switch (timeFilter) {
+                    case 'day':
+                        shouldDisplay = (new Date() - alertDate) <= 86400000; // 1 day in milliseconds
+                        break;
+                    case 'week':
+                        shouldDisplay = (new Date() - alertDate) <= 604800000; // 1 week in milliseconds
+                        break;
+                    case 'month':
+                        shouldDisplay = (new Date() - alertDate) <= 2592000000; // 1 month in milliseconds
+                        break;
+                    case 'year':
+                        shouldDisplay = (new Date() - alertDate) <= 31536000000; // 1 year in milliseconds
+                        break;
+                    case 'specificDate':
+                        if (specificDate) {
+                            shouldDisplay = alertDate.toDateString() === new Date(specificDate).toDateString();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                // Filter by city
+                if (shouldDisplay) {
+                    shouldDisplay = (cityFilter === 'all' || alertCity === cityFilter);
+                }
+
+                // Filter by alert type
+                if (shouldDisplay) {
+                    shouldDisplay = (typeFilter === 'all' || alertType === typeFilter);
+                }
+
+                alert.style.display = shouldDisplay ? '' : 'none';
+
+                if (shouldDisplay) {
+                    visibleCount++; // Count the visible alerts
+                }
+            }
+
+            updateStats(visibleCount); // Update statistics with the visible count
+        }
+
+        function updateStats(visibleCount = null) {
+            const alerts = document.getElementsByClassName('alert');
+            let total = visibleCount !== null ? visibleCount : alerts.length;
+            let totalOK = 25;
+            let totalWarning = 10;
+            let totalCritical = 3;
+            let totalShutdown = 2;
+
+            for (let alert of alerts) {
+                if (alert.style.display !== 'none') { // Only count visible alerts
+                    if (alert.classList.contains('ok')) totalOK++;
+                    else if (alert.classList.contains('warning')) totalWarning++;
+                    else if (alert.classList.contains('critical')) totalCritical++;
+                    else if (alert.classList.contains('shutdown')) totalShutdown++;
+                }
+            }
+
+            document.getElementById('totalAlerts').innerText = total;
+            document.getElementById('totalOK').innerText = totalOK;
+            document.getElementById('totalWarning').innerText = totalWarning;
+            document.getElementById('totalCritical').innerText = totalCritical;
+            document.getElementById('totalShutdown').innerText = totalShutdown;
+        }
+
+        function rgbToHex(rgb) {
+            const rgbArr = rgb.match(/\d+/g);
+         
+        }
+    </script>
+</body>
+</html>

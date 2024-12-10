@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* خلفية فاتحة */
+    color: #333; /* لون النص */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #001f3f; /* كحلي غامق */
+    color: orange; /* نص برتقالي */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav a {
+    color: orange; /* نص برتقالي */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-nav a:hover {
+    color: #fff; /* تغيير اللون عند التمرير */
+}
+
+.header-user-help {
+    display: flex;
+    align-items: center;
+}
+
+.header-user-help a {
+    color: orange; /* نص برتقالي */
+    margin-left: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    color: #001f3f; /* كحلي غامق */
+}
+
+.form-container {
+    background-color: white; /* خلفية بيضاء */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%; /* جعل الحقول تأخذ العرض الكامل */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* تضمين الحشوة في العرض الكلي */
+}
+
+button {
+    background-color: #001f3f; /* كحلي غامق */
+    color: white; /* نص أبيض */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #003366; /* لون أغمق عند التمرير */
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #001f3f; /* كحلي غامق */
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline; /* وضع خط تحت الرابط عند التمرير */
+}

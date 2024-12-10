@@ -1,0 +1,70 @@
+body {
+    background-color: white; /* خلفية بيضاء */
+    font-family: Arial, sans-serif; /* خط الصفحة */
+    margin: 0; /* إزالة المساحة الافتراضية */
+    color: #333; /* لون النص */
+}
+header {
+    background-color: #001f3f; /* كحلي غامق */
+    color: #FFA500; /* كتابة بيضاء */
+    padding: 15px; /* مساحة داخلية للهيدر */
+    display: flex; /* استخدام flexbox لتنسيق العناصر */
+    justify-content: space-between; /* توزيع العناصر */
+    align-items: center; /* محاذاة العمود */
+}
+.header-title {
+    font-size: 24px; /* حجم عنوان الهيدر */
+    font-weight: bold; /* جعل العنوان عريض */
+}
+.header-nav a {
+    margin: 0 15px; /* مساحة بين الروابط */
+    color: #FFA500; /* كتابة بيضاء في الروابط */
+    text-decoration: none; /* إزالة الخط تحت الروابط */
+}
+.header-user-help a {
+    margin-left: 20px; /* مساحة بين الروابط */
+    color: #FFA500; /* لون برتقالي غامق */
+    text-decoration: none; /* إزالة الخط تحت الروابط */
+}
+main {
+    padding: 20px; /* مساحة داخلية للمحتوى */
+}
+.node-info, .metrics, .logs {
+    background: #f0f0f0; /* رمادي فاتح جداً */
+    padding: 20px; /* مساحة داخلية */
+    margin: 15px 0; /* مساحة بين الأقسام */
+    border-radius: 8px; /* زوايا دائرية */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ظل خفيف */
+}
+h1 {
+    font-size: 28px; /* حجم عنوان القسم */
+    margin-bottom: 20px; /* مساحة أسفل العنوان */
+    color: #001f3f; /* لون كحلي غامق */
+}
+h2 {
+    font-size: 22px; /* حجم العناوين الفرعية */
+    margin-top: 20px; /* مساحة أعلى العنوان الفرعي */
+    color: #001f3f; /* لون كحلي غامق */
+}
+.back-link {
+    display: inline-block; /* عرض ككتلة */
+    margin-top: 20px; /* مساحة أعلى */
+    text-decoration: none; /* إزالة الخط تحت الرابط */
+    color: #001f3f; /* لون النص */
+}
+.back-link:hover {
+    text-decoration: underline; /* خط تحت الرابط عند التمرير */
+}
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* تغيير اتجاه العناصر على الشاشات الصغيرة */
+        align-items: flex-start; /* محاذاة العناصر لليسار */
+    }
+    .header-nav {
+        margin-top: 10px; /* مساحة أعلى للروابط */
+    }
+    .back-link {
+        display: block; /* عرض ككتلة في الشاشات الصغيرة */
+        margin-top: 10px; /* مساحة أعلى */
+    }
+}

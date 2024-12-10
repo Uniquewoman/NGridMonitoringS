@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Widgets</title>
+    <link rel="stylesheet" href="MangeW.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">MANGE WIDGETS</div>
+            <nav class="header-nav">
+                <a href="dashboard.html">DASHBOARD</a>
+                <a href="alerts.html">ALERTS & ACTIVITY</a>
+                <a href="reports.html">REPORTS</a>
+                <a href="settings.html">SETTINGS</a>
+                <a href="user.html"><i class="fas fa-user"></i> USER</a>
+                <a href="help.html"><i class="fas fa-question-circle"></i> HELP</a>
+                <a href="login.html" class="login-icon">
+                    <i class="fas fa-arrow-right"></i> Login
+                </a>
+            </nav>
+        </header>
+
+    <div class="container">
+        <h2>Node Monitoring Widgets</h2>
+        <div class="widget-list">
+            <div class="widget-item">
+                <span>Node A Status</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="widget-item">
+                <span>Node B Status</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="widget-item">
+                <span>Node C Status</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="widget-item">
+                <span>Node D Status</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="widget-item">
+                <span>Node E Status</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <button class="save-btn">Save Changes</button>
+    </div>
+
+    <script>
+        document.querySelector('.save-btn').addEventListener('click', function() {
+            alert('Changes saved successfully!');
+        });
+    </script>
+      <a href="settings.html" class="back-link">⬅️ Back to settings</a>
+</body>
+</html>

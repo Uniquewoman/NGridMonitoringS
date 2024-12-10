@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Activity Logs</title>
+    <link rel="stylesheet" href="actL.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">VIEW ACTIVITY LOGS</div>
+        <nav class="header-nav">
+            <a href="dashboard.html">DASHBOARD</a>
+            <a href="alerts.html">ALERTS & ACTIVITY</a>
+            <a href="reports.html">REPORTS</a>
+            <a href="settings.html">SETTINGS</a>
+            <a href="user.html"><i class="fas fa-user"></i> USER</a>
+            <a href="help.html"><i class="fas fa-question-circle"></i> HELP</a>
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-arrow-right"></i> Login
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>ACTIVITY LOGS</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody id="logTableBody">
+               
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        const logs = [
+            { id: 1, timestamp: '2024-11-01 10:00:00', user: 'Admin', action: 'Logged in' },
+            { id: 2, timestamp: '2024-11-01 10:15:00', user: 'User1', action: 'Updated profile' },
+            { id: 3, timestamp: '2024-11-01 10:30:00', user: 'Admin', action: 'Deleted a post' },
+            { id: 4, timestamp: '2024-11-01 10:45:00', user: 'User2', action: 'Created a new post' },
+            { id: 5, timestamp: '2024-11-01 11:00:00', user: 'User1', action: 'Logged out' },
+        ];
+
+        function renderLogs() {
+            const logTableBody = document.getElementById('logTableBody');
+            logTableBody.innerHTML = '';
+
+            logs.forEach(log => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${log.timestamp}</td>
+                    <td>${log.user}</td>
+                    <td>${log.action}</td>
+                    <td>
+                        <button onclick="editLog(${log.id})">Edit</button>
+                        <button onclick="deleteLog(${log.id})">Delete</button>
+                    </td>
+                `;
+                logTableBody.appendChild(row);
+            });
+        }
+
+        function editLog(id) {
+            const log = logs.find(log => log.id === id);
+            const newAction = prompt('Edit action:', log.action);
+            if (newAction) {
+                log.action = newAction;
+                renderLogs();
+            }
+        }
+
+        function deleteLog(id) {
+            const logIndex = logs.findIndex(log => log.id === id);
+            if (logIndex > -1) {
+                logs.splice(logIndex, 1);
+                renderLogs();
+            }
+        }
+
+        // Initial render
+        renderLogs();
+    </script>
+    <a href="settings.html" class="back-link">⬅️ Back to settings</a>
+</body>
+</html>

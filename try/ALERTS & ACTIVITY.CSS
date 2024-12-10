@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; /* خلفية بيضاء */
+    color: black; /* لون النص أسود */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #001f3f; /* كحلي غامق */
+    color: orange; /* كتابة برتقالية */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-nav a {
+    color: orange; /* برتقالي */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-nav a:hover {
+    color: #fff; /* تغيير اللون عند التمرير */
+}
+
+.header-user, .header-help {
+    color: orange; /* برتقالي */
+    margin-left: 20px;
+}
+
+.container {
+    display: flex; /* استخدام الفليكس لتوزيع المحتوى */
+    padding: 20px; /* حشوة داخلية */
+}
+
+.sidebar {
+    width: 200px; /* عرض الشريط الجانبي */
+    margin-right: 20px; /* مسافة بين الشريط الجانبي والمحتوى */
+}
+
+.sidebar h2 {
+    color: #001f3f; /* كحلي */
+}
+
+.sidebar ul {
+    list-style-type: none; /* إزالة النقاط من القائمة */
+    padding: 0; /* إزالة حشوة القائمة */
+}
+
+.sidebar ul li {
+    margin-bottom: 10px; /* مسافة بين العناصر */
+}
+
+.sidebar a {
+    color: orange; /* برتقالي */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: #fff; /* تغيير اللون عند التمرير */
+}
+
+.content {
+    flex: 1; /* جعل المحتوى يشغل المساحة المتبقية */
+}
+
+.alert-summary, .activity-log, .analytics, .extra-content {
+    margin-top: 30px; /* مساحة أعلى لكل قسم */
+}
+
+.summary-card, .analytics-card {
+    background-color: #f0f0f0; /* خلفية رمادية فاتحة */
+    color: black; /* نص أسود */
+    border-radius: 5px; /* زوايا دائرية */
+    padding: 15px; /* حشوة داخلية */
+    margin-bottom: 20px; /* مسافة أسفل */
+}
+
+.alert-list {
+    margin-top: 20px; /* مساحة أعلى قائمة الإنذارات */
+}
+
+.alert {
+    background-color: #f0f0f0; /* خلفية رمادية فاتحة */
+    color: black; /* نص أسود */
+    border-radius: 5px; /* زوايا دائرية */
+    padding: 10px; /* حشوة الإنذارات */
+    margin-bottom: 15px; /* مسافة بين الإنذارات */
+    transition: background-color 0.3s; /* تأثير عند التمرير */
+}
+
+.alert:hover {
+    background-color: #e0e0e0; /* لون أفتح عند التمرير */
+}
+
+.alert.warning {
+    border-left: 5px solid orange; /* حدود برتقالية للإنذارات التحذيرية */
+}
+
+.alert.critical {
+    border-left: 5px solid red; /* حدود حمراء للإنذارات الحرجة */
+}
+
+.alert.shutdown {
+    border-left: 5px solid black; /* حدود سوداء لإنذارات الإيقاف */
+}
+
+.alert.resolved {
+    border-left: 5px solid green; /* حدود خضراء للإنذارات المحلولة */
+}
+
+table {
+    width: 100%; /* عرض الجدول */
+    border-collapse: collapse; /* إزالة المسافات بين الحدود */
+    margin-top: 10px; /* مساحة أعلى الجدول */
+}
+
+th, td {
+    border: 1px solid #ccc; /* حدود خفيفة */
+    padding: 10px; /* حشوة داخل الخلايا */
+    text-align: left; /* محاذاة النص لليسار */
+}
+
+th {
+    background-color: #001f3f; /* كحلي غامق */
+    color: orange; /* نص برتقالي */
+}
+
+.extra-content {
+    display: flex; /* استخدام الفليكس لتوزيع المحتوى */
+    gap: 20px; /* مسافة بين العناصر */
+    margin-top: 30px; /* مساحة أعلى */
+}
+
+.info-box {
+    background-color: #f0f0f0; /* خلفية رمادية فاتحة */
+    color: black; /* نص أسود */
+    border-radius: 5px; /* زوايا دائرية */
+    padding: 15px; /* حشوة داخلية */
+    flex: 1; /* يجعل المربعات تأخذ نفس العرض */
+}
+
+.back-link {
+    display: inline-block; /* عرض ككتلة */
+    margin-top: 20px; /* مساحة أعلى */
+    font-size: 18px; /* حجم الخط */
+    text-decoration: none; /* إزالة الخط تحت الرابط */
+    color: #001f3f; /* لون النص */
+}
